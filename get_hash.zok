@@ -1,0 +1,8 @@
+import "hashes/sha256/512bit" as sha256
+
+// 512bit input to 256bit output
+def main(u32[16] hashMe) -> u32[8]:
+
+    // concat and hash, but in seperate slices as sha256 works on 256bit, duh ;)
+    u32[8] h = sha256(hashMe[0..8], hashMe[8..16])
+    return h
